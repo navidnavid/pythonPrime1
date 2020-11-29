@@ -1,8 +1,9 @@
 from model.prim import primMethod
+import numpy
 
 def main():
  
-    prm=[ 2, 2, 2]
+    prm=[ 2, 3, 5, 7, 11, 13 , 17]
     wn=3
     wnComb = 2**wn
     priObj = primMethod(0,[])
@@ -10,9 +11,9 @@ def main():
     
     for fn in range(wnComb) :
         #convRes.append([])
-        temp = priObj.conv(fn,prm)
-        temp= deleteDub(temp)
-        convRes.append(matchQ(temp.append(prm)))
+        temp = priObj.convfiltd(fn,prm)
+        #temp= priObj.deleteDub(temp)
+        convRes.append(priObj.matchQ(numpy.append(temp, prm)))
         #convRes[n].append(temp)
     
     print(convRes)
