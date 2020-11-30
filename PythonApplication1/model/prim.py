@@ -20,10 +20,9 @@ class primMethod(object):
 
         nState = list(map(int, x)) # converst to intiger
         x =numpy.array(nState)
-        index1= numpy.where((x==1))# remove single 1 relation
-        print(x[ index1] )
-        if ((index1.count)==1):
-            return []
+        #ones_idx= numpy.where(x==1, )# remove single 1 relation
+        if ( sum(x) < 2): #remove single ones 
+            return 0
         
         res =( numpy.convolve(x, pAry))
         res = res[n:] # remove first n elemnet
@@ -36,8 +35,8 @@ class primMethod(object):
         index = numpy.where((resAryNp == 0)) #find zeroe
         resAryNp= numpy.delete(resAryNp, index) # delete zeros
         resAryMOd= numpy.diff(resAryNp) # compare to nearest
-        pMatchFind = numpy.where(resAryMOd == 0) # 0 = one found 
-        return len(pMatchFind)
+        pMatchFind_idx = numpy.where(resAryMOd == 0) # 0 = one found 
+        return pMatchFind_idx 
         
     def deleteDub(self,ary):
         arySortd= numpy.unique(ary)
