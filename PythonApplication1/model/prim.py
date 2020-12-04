@@ -19,15 +19,16 @@ class primMethod(object):
         # find signle 1 which means no linear relatoin
 
         nState = list(map(int, x)) # converst to intiger
+        q_binaryAry = len(nState)-1
         x =numpy.array(nState)
         #ones_idx= numpy.where(x==1, )# remove single 1 relation
         if ( sum(x) < 2): #remove single ones 
             return 0
         
         res =( numpy.convolve(x, pAry))
-        res = res[n:] # remove first n elemnet
-        res= res[:len(res)-n] # remove last n element 
-        return res
+        res1 = res[q_binaryAry:] # remove first n elemnet
+        res2= res1[:len(res1)-q_binaryAry] #
+        return res2
 
     def matchQ(self, resAry):
         resAry.sort() 
@@ -36,7 +37,9 @@ class primMethod(object):
         resAryNp= numpy.delete(resAryNp, index) # delete zeros
         resAryMOd= numpy.diff(resAryNp) # compare to nearest
         pMatchFind_idx = numpy.where(resAryMOd == 0) # 0 = one found 
-        return pMatchFind_idx 
+        pMatchFindNpAry= numpy.array(pMatchFind_idx)
+        qPrimeFound = len(pMatchFindNpAry[0])
+        return qPrimeFound 
         
     def deleteDub(self,ary):
         arySortd= numpy.unique(ary)

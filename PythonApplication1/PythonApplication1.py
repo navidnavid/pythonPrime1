@@ -3,7 +3,7 @@ import numpy
 
 def main():
  
-    prm=[ 2, 3, 5, 7, 11, 13 , 17]
+    prm=[ 2, 3, 5]
     wn=3
     wnComb = 2**wn
     priObj = primMethod(0,[])
@@ -13,7 +13,7 @@ def main():
         #convRes.append([])
         temp = priObj.convfiltd(fn,prm)
         #temp= priObj.deleteDub(temp)
-        convRes.append(priObj.matchQ(numpy.append(temp, prm)))
+        convRes.append(priObj.matchQ(numpy.append(temp, prm)))# add prime then see matches
         #convRes[n].append(temp)
     
     print(convRes)
