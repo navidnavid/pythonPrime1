@@ -4,18 +4,24 @@ import os
 
 def main():
 
-    
+# read db file and change str to int 
     cur_path = os.path.dirname(__file__)
-    new_path =  cur_path + '\\db\\db.txt'
- 
-    prm=[ 2, 3, 5]
-
-    
+    new_path =  cur_path + '\\db\\db.txt' 
+    prm=[ 2, 3, 5]# for test 
     file1 = open(new_path,"r") 
     dbtxt= file1.read()
-    
+    dbPrim= dbtxt.split(',')
+    prm= []
+    try:
+        for prNum in dbPrim:
+            prm.append(int( prNum ))
+    except:
+        prNum
 
-    wn=6
+    #print(prm)
+
+# do algorithm
+    wn=8
     wnComb = 2**wn
     priObj = primMethod(0,[])
     convRes = []    
@@ -34,6 +40,7 @@ def main():
         #convRes[n].append(temp)
     
     print(convRes)
+    print("-----------------------------")
     print(maxP)
 
 if __name__ == "__main__":
