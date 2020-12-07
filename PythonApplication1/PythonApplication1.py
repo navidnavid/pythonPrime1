@@ -24,7 +24,8 @@ def main():
     wn=8
     wnComb = 2**wn
     priObj = primMethod(0,[])
-    convRes = []    
+    convRes = []
+    max_relation = []
     maxP =0
     for fn in range(wnComb) :
         #convRes.append([])
@@ -34,14 +35,22 @@ def main():
         foundPrim = priObj.matchQ(numpy.append(temp, prm))
         if(foundPrim >0 ):
             convRes.append([fn, foundPrim])# add prime then see matches
-            maxP = max(foundPrim, maxP)
+            if(foundPrim> maxP):
+                max_relation = priObj.makeAry(fn)
+                maxP = foundPrim
+
 
   
         #convRes[n].append(temp)
-    
-    print(convRes)
-    print("-----------------------------")
+    meanOfMatches= numpy.mean(convRes)
+    print("---------max_relation------------------")
+    print(max_relation)
+    print("---------maxP found quantity-----------------")
     print(maxP)
+    print("-----------meanOfMatches-------------")
+    print(meanOfMatches)
+
+
 
 if __name__ == "__main__":
     main()
