@@ -21,7 +21,7 @@ def main():
     #print(prm)
 
 # do algorithm
-    wn=8
+    wn=10
     wnComb = 2**wn
     priObj = primMethod(0,[])
     convRes = []
@@ -50,6 +50,7 @@ def main():
     print("-----------meanOfMatches-------------")
     print(meanOfMatches)
 
+    # an other goo didea is to make it mpdel based like logistic mapp to feet to it
 
 
 if __name__ == "__main__":
